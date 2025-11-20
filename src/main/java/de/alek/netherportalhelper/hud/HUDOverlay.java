@@ -29,9 +29,11 @@ public class HUDOverlay {
 
         renderInfoPanel(context, client, playerBlockPos, inNether);
 
-        // Nur rendern wenn aktiv UND wir ein Ziel haben
-        if (PortalTracker.active && PortalTracker.targetPos != null && inNether) {
-            renderNavigationCompass(context, client);
+        // Nur rendern wenn aktiv UND wir ein Ziel haben UND wir in der Zieldimension sind
+        if (PortalTracker.active && PortalTracker.targetPos != null && PortalTracker.targetDimension != null) {
+            if (client.world.getRegistryKey() == PortalTracker.targetDimension) {
+                renderNavigationCompass(context, client);
+            }
         }
     }
 
