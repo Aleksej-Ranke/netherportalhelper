@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "Aide Portail",
+  "key.netherportalhelper.freeze": "Figer/Naviguer Portail",
+  "key.netherportalhelper.toggle": "Afficher/Masquer Overlay",
+
+  "msg.netherportalhelper.enabled": "Aide Portail: Visible",
+  "msg.netherportalhelper.disabled": "Aide Portail: Masqué",
+
+  "hud.netherportalhelper.pos": "Pos: %s, %s (%s)",
+  "hud.netherportalhelper.target": "Cible: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "VERROUILLÉ",
+  "hud.netherportalhelper.unlock_hint": "pour déverrouiller",
+  "hud.netherportalhelper.lock_hint": "pour verrouiller",
+  "hud.netherportalhelper.build_here": "CONSTRUIRE ICI",
+  "hud.netherportalhelper.turn_around": "Retournez-vous",
+  "hud.netherportalhelper.not_possible": "Impossible ici !",
+  "hud.netherportalhelper.on": "ON",
+  "hud.netherportalhelper.off": "OFF"
+}

@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "Portal Helfer",
+  "key.netherportalhelper.freeze": "Portal einfrieren/navigieren",
+  "key.netherportalhelper.toggle": "Overlay an/aus (Toggle)",
+
+  "msg.netherportalhelper.enabled": "Portal Helfer: Sichtbar",
+  "msg.netherportalhelper.disabled": "Portal Helfer: Versteckt",
+
+  "hud.netherportalhelper.pos": "Pos: %s, %s (%s)",
+  "hud.netherportalhelper.target": "Ziel: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "FIXIERT",
+  "hud.netherportalhelper.unlock_hint": "zum Lösen",
+  "hud.netherportalhelper.lock_hint": "zum Fixieren",
+  "hud.netherportalhelper.build_here": "HIER BAUEN",
+  "hud.netherportalhelper.turn_around": "Umdrehen",
+  "hud.netherportalhelper.not_possible": "Hier nicht möglich!",
+  "hud.netherportalhelper.on": "AN",
+  "hud.netherportalhelper.off": "AUS"
+}

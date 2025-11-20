@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "netherportalhelper",
+  "version": "${version}",
+  "name": "netherportalhelper",
+  "description": "Shows exact portal coordinates for Nether/Overworld travel, with easy HUD.",
+  "authors": ["Alek"],
+  "contact": {
+    "discord": "alek2403"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/netherportalhelper/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "de.alek.netherportalhelper.Netherportalhelper"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "~1.21"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "Помощник Портала",
+  "key.netherportalhelper.freeze": "Заморозить/Навигация",
+  "key.netherportalhelper.toggle": "Переключить оверлей",
+
+  "msg.netherportalhelper.enabled": "Помощник Портала: Виден",
+  "msg.netherportalhelper.disabled": "Помощник Портала: Скрыт",
+
+  "hud.netherportalhelper.pos": "Поз: %s, %s (%s)",
+  "hud.netherportalhelper.target": "Цель: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "ЗАФИКСИРОВАНО",
+  "hud.netherportalhelper.unlock_hint": "разблокировать",
+  "hud.netherportalhelper.lock_hint": "заблокировать",
+  "hud.netherportalhelper.build_here": "СТРОИТЬ ЗДЕСЬ",
+  "hud.netherportalhelper.turn_around": "Развернись",
+  "hud.netherportalhelper.not_possible": "Здесь невозможно!",
+  "hud.netherportalhelper.on": "ВКЛ",
+  "hud.netherportalhelper.off": "ВЫКЛ"
+}

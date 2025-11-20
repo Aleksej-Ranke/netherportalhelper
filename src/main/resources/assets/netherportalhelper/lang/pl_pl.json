@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "Pomocnik Portalu",
+  "key.netherportalhelper.freeze": "Zablokuj/Nawiguj Portal",
+  "key.netherportalhelper.toggle": "Pokaż/Ukryj Nakładkę",
+
+  "msg.netherportalhelper.enabled": "Pomocnik Portalu: Widoczny",
+  "msg.netherportalhelper.disabled": "Pomocnik Portalu: Ukryty",
+
+  "hud.netherportalhelper.pos": "Poz: %s, %s (%s)",
+  "hud.netherportalhelper.target": "Cel: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "ZABLOKOWANE",
+  "hud.netherportalhelper.unlock_hint": "aby odblokować",
+  "hud.netherportalhelper.lock_hint": "aby zablokować",
+  "hud.netherportalhelper.build_here": "BUDUJ TUTAJ",
+  "hud.netherportalhelper.turn_around": "Odwróć się",
+  "hud.netherportalhelper.not_possible": "Niemożliwe tutaj!",
+  "hud.netherportalhelper.on": "WŁ",
+  "hud.netherportalhelper.off": "WYŁ"
+}

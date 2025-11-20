@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "传送门助手",
+  "key.netherportalhelper.freeze": "锁定/导航传送门",
+  "key.netherportalhelper.toggle": "显示/隐藏",
+
+  "msg.netherportalhelper.enabled": "传送门助手: 可见",
+  "msg.netherportalhelper.disabled": "传送门助手: 隐藏",
+
+  "hud.netherportalhelper.pos": "位置: %s, %s (%s)",
+  "hud.netherportalhelper.target": "目标: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "已锁定",
+  "hud.netherportalhelper.unlock_hint": "解锁",
+  "hud.netherportalhelper.lock_hint": "锁定",
+  "hud.netherportalhelper.build_here": "在此建造",
+  "hud.netherportalhelper.turn_around": "请转身",
+  "hud.netherportalhelper.not_possible": "此处不可用！",
+  "hud.netherportalhelper.on": "开",
+  "hud.netherportalhelper.off": "关"
+}

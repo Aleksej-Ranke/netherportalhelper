@@ -1,0 +1,19 @@
+{
+  "category.netherportalhelper": "Portal Helper",
+  "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
+  "key.netherportalhelper.toggle": "Toggle Overlay",
+
+  "msg.netherportalhelper.enabled": "Portal Helper: Visible",
+  "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
+
+  "hud.netherportalhelper.pos": "Pos: %s, %s (%s)",
+  "hud.netherportalhelper.target": "Target: %s%s, %s (%s)",
+  "hud.netherportalhelper.locked": "LOCKED",
+  "hud.netherportalhelper.unlock_hint": "to unlock",
+  "hud.netherportalhelper.lock_hint": "to lock",
+  "hud.netherportalhelper.build_here": "BUILD HERE",
+  "hud.netherportalhelper.turn_around": "Turn Around",
+  "hud.netherportalhelper.not_possible": "Not possible here!",
+  "hud.netherportalhelper.on": "ON",
+  "hud.netherportalhelper.off": "OFF"
+}
