@@ -45,10 +45,12 @@ public class Netherportalhelper implements ClientModInitializer {
             while (toggleKey.wasPressed()) {
                 HUDOverlay.isVisible = !HUDOverlay.isVisible;
 
-                if (HUDOverlay.isVisible) {
-                    client.player.sendMessage(Text.translatable("msg.netherportalhelper.enabled").formatted(Formatting.GREEN), true);
-                } else {
-                    client.player.sendMessage(Text.translatable("msg.netherportalhelper.disabled").formatted(Formatting.RED), true);
+                if (client.player != null) {
+                    if (HUDOverlay.isVisible) {
+                        client.player.sendMessage(Text.translatable("msg.netherportalhelper.enabled").formatted(Formatting.GREEN), true);
+                    } else {
+                        client.player.sendMessage(Text.translatable("msg.netherportalhelper.disabled").formatted(Formatting.RED), true);
+                    }
                 }
             }
 
@@ -69,8 +71,8 @@ public class Netherportalhelper implements ClientModInitializer {
                     boolean inOverworld = client.world.getRegistryKey() == World.OVERWORLD;
 
                     if (inNether || inOverworld) {
-                        int targetX = inNether ? currentPos.getX() * 8 : currentPos.getX() / 8;
-                        int targetZ = inNether ? currentPos.getZ() * 8 : currentPos.getZ() / 8;
+                        int targetX = inNether ? currentPos.getX() * 8 : Math.floorDiv(currentPos.getX(), 8);
+                        int targetZ = inNether ? currentPos.getZ() * 8 : Math.floorDiv(currentPos.getZ(), 8);
                         BlockPos target = new BlockPos(targetX, currentPos.getY(), targetZ);
 
                         PortalTracker.toggleFreeze(target);

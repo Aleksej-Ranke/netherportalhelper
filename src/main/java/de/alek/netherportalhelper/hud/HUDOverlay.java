@@ -42,8 +42,8 @@ public class HUDOverlay {
             targetX = PortalTracker.targetPos.getX();
             targetZ = PortalTracker.targetPos.getZ();
         } else {
-            targetX = inNether ? pos.getX() * 8 : pos.getX() / 8;
-            targetZ = inNether ? pos.getZ() * 8 : pos.getZ() / 8;
+            targetX = inNether ? pos.getX() * 8 : Math.floorDiv(pos.getX(), 8);
+            targetZ = inNether ? pos.getZ() * 8 : Math.floorDiv(pos.getZ(), 8);
         }
 
         String currentDim = inNether ? "Nether" : "Overworld";
