@@ -59,7 +59,7 @@ public class Netherportalhelper implements ClientModInitializer {
 
                 if (PortalTracker.active) {
                     // Deaktivieren
-                    PortalTracker.toggleFreeze(null);
+                    PortalTracker.toggleFreeze(null, null);
                     // Nachricht bauen: "Portal Navigation: AUS"
                     Text message = Text.literal("Portal Navigation: ")
                             .append(Text.translatable("hud.netherportalhelper.off").formatted(Formatting.RED));
@@ -75,7 +75,10 @@ public class Netherportalhelper implements ClientModInitializer {
                         int targetZ = inNether ? currentPos.getZ() * 8 : Math.floorDiv(currentPos.getZ(), 8);
                         BlockPos target = new BlockPos(targetX, currentPos.getY(), targetZ);
 
-                        PortalTracker.toggleFreeze(target);
+                        // Calculate target dimension
+                        net.minecraft.registry.RegistryKey<World> targetDim = inNether ? World.OVERWORLD : World.NETHER;
+
+                        PortalTracker.toggleFreeze(target, targetDim);
 
                         // Nachricht bauen: "Portal Navigation: LOCKED"
                         Text message = Text.literal("Portal Navigation: ")
