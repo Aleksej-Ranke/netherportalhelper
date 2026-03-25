@@ -4,17 +4,17 @@ import de.alek.netherportalhelper.Netherportalhelper;
 import de.alek.netherportalhelper.config.ConfigManager;
 import de.alek.netherportalhelper.config.ModConfig;
 import de.alek.netherportalhelper.util.PortalTracker;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 import java.util.Locale;
 
@@ -29,15 +29,15 @@ public class HUDOverlay {
         smoothedDiffDegrees = 0.0f;
     }
 
-    public static void render(DrawContext context) {
+    public static void render(GuiGraphicsExtractor context) {
         if (!isVisible) return;
 
         ModConfig config = ConfigManager.get();
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null || client.world == null) return;
+        Minecraft client = Minecraft.getInstance();
+        if (client.player == null || client.level == null) return;
 
-        BlockPos playerBlockPos = client.player.getBlockPos();
-        RegistryKey<World> currentDimension = client.world.getRegistryKey();
+        BlockPos playerBlockPos = client.player.blockPosition();
+        ResourceKey<Level> currentDimension = client.level.dimension();
         if (!PortalTracker.isPortalDimension(currentDimension)) return;
 
         renderInfoPanel(context, client, playerBlockPos, config, currentDimension);
@@ -50,11 +50,11 @@ public class HUDOverlay {
     }
 
     private static void renderInfoPanel(
-            DrawContext context,
-            MinecraftClient client,
+            GuiGraphicsExtractor context,
+            Minecraft client,
             BlockPos pos,
             ModConfig config,
-            RegistryKey<World> currentDimension
+            ResourceKey<Level> currentDimension
     ) {
         int targetX;
         int targetZ;
@@ -71,37 +71,37 @@ public class HUDOverlay {
             targetZ = counterpart.getZ();
         }
 
-        Text title = Text.translatable("hud.netherportalhelper.title").formatted(Formatting.GOLD);
+        Component title = Component.translatable("hud.netherportalhelper.title").withStyle(ChatFormatting.GOLD);
         boolean isLocked = PortalTracker.isActive();
 
-        Text line1 = Text.translatable(
+        Component line1 = Component.translatable(
                 "hud.netherportalhelper.pos",
-                Text.literal(Integer.toString(pos.getX())).formatted(Formatting.AQUA),
-                Text.literal(Integer.toString(pos.getZ())).formatted(Formatting.AQUA)
-        ).formatted(Formatting.WHITE);
+                Component.literal(Integer.toString(pos.getX())).withStyle(ChatFormatting.AQUA),
+                Component.literal(Integer.toString(pos.getZ())).withStyle(ChatFormatting.AQUA)
+        ).withStyle(ChatFormatting.WHITE);
 
-        Text line2 = Text.translatable(
+        Component line2 = Component.translatable(
                 "hud.netherportalhelper.target",
-                Text.literal(Integer.toString(targetX)).formatted(isLocked ? Formatting.GREEN : Formatting.GRAY),
-                Text.literal(Integer.toString(targetZ)).formatted(isLocked ? Formatting.GREEN : Formatting.GRAY)
-        ).formatted(Formatting.WHITE);
+                Component.literal(Integer.toString(targetX)).withStyle(isLocked ? ChatFormatting.GREEN : ChatFormatting.GRAY),
+                Component.literal(Integer.toString(targetZ)).withStyle(isLocked ? ChatFormatting.GREEN : ChatFormatting.GRAY)
+        ).withStyle(ChatFormatting.WHITE);
 
-        Text actionLine = Text.literal("[" + Netherportalhelper.getFreezeKeyName() + "] ")
-                .formatted(Formatting.DARK_GRAY)
-                .append(Text.translatable(isLocked ? "hud.netherportalhelper.unlock_hint" : "hud.netherportalhelper.lock_hint").formatted(Formatting.WHITE));
+        Component actionLine = Component.literal("[" + Netherportalhelper.getFreezeKeyName() + "] ")
+                .withStyle(ChatFormatting.DARK_GRAY)
+                .append(Component.translatable(isLocked ? "hud.netherportalhelper.unlock_hint" : "hud.netherportalhelper.lock_hint").withStyle(ChatFormatting.WHITE));
 
-        Text hintLine = Text.literal("[" + Netherportalhelper.getHideKeyName() + "] ")
-                .formatted(Formatting.DARK_GRAY)
-                .append(Text.translatable("hud.netherportalhelper.hide_hint").formatted(Formatting.GRAY));
+        Component hintLine = Component.literal("[" + Netherportalhelper.getHideKeyName() + "] ")
+                .withStyle(ChatFormatting.DARK_GRAY)
+                .append(Component.translatable("hud.netherportalhelper.hide_hint").withStyle(ChatFormatting.GRAY));
 
-        Text badgeText = Text.translatable(isLocked ? "hud.netherportalhelper.locked" : "hud.netherportalhelper.ready");
-        int titleWidth = client.textRenderer.getWidth(title);
-        int line1Width = client.textRenderer.getWidth(line1);
-        int line2Width = client.textRenderer.getWidth(line2);
-        int actionLineWidth = client.textRenderer.getWidth(actionLine);
-        int hintLineWidth = Math.round(client.textRenderer.getWidth(hintLine) * 0.85f);
+        Component badgeText = Component.translatable(isLocked ? "hud.netherportalhelper.locked" : "hud.netherportalhelper.ready");
+        int titleWidth = client.font.width(title);
+        int line1Width = client.font.width(line1);
+        int line2Width = client.font.width(line2);
+        int actionLineWidth = client.font.width(actionLine);
+        int hintLineWidth = Math.round(client.font.width(hintLine) * 0.85f);
         int badgePaddingX = 4;
-        int badgeWidth = client.textRenderer.getWidth(badgeText) + badgePaddingX * 2;
+        int badgeWidth = client.font.width(badgeText) + badgePaddingX * 2;
 
         int panelX = config.hudPanelX;
         int panelY = config.hudPanelY;
@@ -141,7 +141,7 @@ public class HUDOverlay {
         context.fill(panelX + panelWidth - 1, panelY, panelX + panelWidth, panelY + panelHeight, 0x88000000);
 
         context.fill(panelX + 1, panelY + headerHeight, panelX + panelWidth - 1, panelY + headerHeight + 1, accent);
-        context.drawTextWithShadow(client.textRenderer, title, panelX + padding, panelY + 2, 0xFFFFD95F);
+        context.text(client.font, title, panelX + padding, panelY + 2, 0xFFFFD95F, true);
 
         int badgeX = panelX + panelWidth - padding - badgeWidth;
         int badgeY = panelY + 1;
@@ -150,20 +150,20 @@ public class HUDOverlay {
         context.fill(badgeX, badgeY, badgeX + badgeWidth, badgeY + 10, badgeColor);
         context.fill(badgeX, badgeY, badgeX + badgeWidth, badgeY + 1, badgeOutline);
         context.fill(badgeX, badgeY + 9, badgeX + badgeWidth, badgeY + 10, 0x99000000);
-        context.drawTextWithShadow(client.textRenderer, badgeText, badgeX + badgePaddingX, badgeY + 1, 0xFFFFFFFF);
+        context.text(client.font, badgeText, badgeX + badgePaddingX, badgeY + 1, 0xFFFFFFFF, true);
 
         context.fill(panelX + padding, separatorY, panelX + panelWidth - padding, separatorY + 1, 0x55777777);
 
-        context.drawTextWithShadow(client.textRenderer, line1, textX, line1Y, 0xFFFFFFFF);
-        context.drawTextWithShadow(client.textRenderer, line2, textX, line2Y, 0xFFFFFFFF);
-        context.drawTextWithShadow(client.textRenderer, actionLine, textX, line3Y, 0xFFFFFFFF);
-        drawScaledText(context, client.textRenderer, hintLine, textX, line4Y, 0xFFB5B5B5, 0.85f);
+        context.text(client.font, line1, textX, line1Y, 0xFFFFFFFF, true);
+        context.text(client.font, line2, textX, line2Y, 0xFFFFFFFF, true);
+        context.text(client.font, actionLine, textX, line3Y, 0xFFFFFFFF, true);
+        drawScaledText(context, client.font, hintLine, textX, line4Y, 0xFFB5B5B5, 0.85f);
 
-        context.drawItem(getDimensionIcon(currentDimension), iconX, icon1Y);
-        context.drawItem(getDimensionIcon(PortalTracker.getCounterpartDimension(currentDimension)), iconX, icon2Y);
+        context.item(getDimensionIcon(currentDimension), iconX, icon1Y);
+        context.item(getDimensionIcon(PortalTracker.getCounterpartDimension(currentDimension)), iconX, icon2Y);
     }
 
-    private static void renderNavigationCompass(DrawContext context, MinecraftClient client, ModConfig config) {
+    private static void renderNavigationCompass(GuiGraphicsExtractor context, Minecraft client, ModConfig config) {
         BlockPos target = PortalTracker.getTargetPos();
         if (target == null) {
             return;
@@ -174,30 +174,30 @@ public class HUDOverlay {
         double tx = target.getX() + 0.5;
         double tz = target.getZ() + 0.5;
 
-        double distance = Math.sqrt(client.player.squaredDistanceTo(tx, client.player.getY(), tz));
+        double distance = Math.sqrt(client.player.distanceToSqr(tx, client.player.getY(), tz));
 
         boolean onTargetX = client.player.getBlockX() == target.getX();
         boolean onTargetZ = client.player.getBlockZ() == target.getZ();
 
-        int centerX = client.getWindow().getScaledWidth() / 2;
+        int centerX = client.getWindow().getGuiScaledWidth() / 2;
         int centerY = config.compassCenterY;
 
         if (onTargetX && onTargetZ) {
-            drawCenteredScaleText(context, client.textRenderer, Text.literal("\u2714"), centerX, centerY - 4, 0xFF55FF55, config.compassArrowScale);
-            drawCenteredScaleText(context, client.textRenderer, Text.translatable("hud.netherportalhelper.build_here"), centerX, centerY + 20, 0xFFFFFFFF, config.compassTextScale);
+            drawCenteredScaleText(context, client.font, Component.literal("\u2714"), centerX, centerY - 4, 0xFF55FF55, config.compassArrowScale);
+            drawCenteredScaleText(context, client.font, Component.translatable("hud.netherportalhelper.build_here"), centerX, centerY + 20, 0xFFFFFFFF, config.compassTextScale);
             return;
         }
 
         double angleToTargetRad = Math.atan2(tz - pz, tx - px);
         double angleToTargetDeg = Math.toDegrees(angleToTargetRad) - 90.0;
-        float rawDiff = (float) MathHelper.wrapDegrees(angleToTargetDeg - client.player.getYaw());
+        float rawDiff = (float) Mth.wrapDegrees(angleToTargetDeg - client.player.getYRot());
         float smoothedDiff = smoothDiff(rawDiff, config.compassSmoothing);
 
         int arrowColor = blendArrowColor(Math.abs(smoothedDiff) / 180.0f);
         drawCenteredRotatedScaleText(
                 context,
-                client.textRenderer,
-                Text.literal("\u2B06"),
+                client.font,
+                Component.literal("\u2B06"),
                 centerX,
                 centerY,
                 arrowColor,
@@ -206,13 +206,13 @@ public class HUDOverlay {
         );
 
         String distString = String.format(Locale.ROOT, "%.1fm", distance);
-        drawCenteredScaleText(context, client.textRenderer, Text.literal(distString), centerX, centerY + 24, 0xFFFFFFFF, config.compassTextScale);
+        drawCenteredScaleText(context, client.font, Component.literal(distString), centerX, centerY + 24, 0xFFFFFFFF, config.compassTextScale);
 
         if (config.showTurnAroundHint && Math.abs(smoothedDiff) >= config.compassBackzoneDegrees) {
             drawCenteredScaleText(
                     context,
-                    client.textRenderer,
-                    Text.translatable("hud.netherportalhelper.turn_around"),
+                    client.font,
+                    Component.translatable("hud.netherportalhelper.turn_around"),
                     centerX,
                     centerY + 35,
                     0xFFFF6666,
@@ -224,7 +224,7 @@ public class HUDOverlay {
             int dy = target.getY() - client.player.getBlockY();
             if (Math.abs(dy) > 3) {
                 String yArrow = dy > 0 ? "\u21E7" : "\u21E9";
-                drawCenteredScaleText(context, client.textRenderer, Text.literal(yArrow + " " + Math.abs(dy)), centerX, centerY + 46, 0xFFAAAAAA, 0.8f);
+                drawCenteredScaleText(context, client.font, Component.literal(yArrow + " " + Math.abs(dy)), centerX, centerY + 46, 0xFFAAAAAA, 0.8f);
             }
         }
     }
@@ -252,61 +252,61 @@ public class HUDOverlay {
             return smoothedDiffDegrees;
         }
 
-        float delta = MathHelper.wrapDegrees(rawDiff - smoothedDiffDegrees);
-        smoothedDiffDegrees = MathHelper.wrapDegrees(smoothedDiffDegrees + delta * alpha);
+        float delta = Mth.wrapDegrees(rawDiff - smoothedDiffDegrees);
+        smoothedDiffDegrees = Mth.wrapDegrees(smoothedDiffDegrees + delta * alpha);
         return smoothedDiffDegrees;
     }
 
-    private static void drawCenteredScaleText(DrawContext context, TextRenderer textRenderer, Text text, int x, int y, int color, float scale) {
-        int textWidth = textRenderer.getWidth(text);
-        context.getMatrices().pushMatrix();
-        context.getMatrices().scaleLocal(scale, scale);
-        context.getMatrices().translateLocal((float) x, (float) y);
-        context.drawTextWithShadow(textRenderer, text, -textWidth / 2, 0, color);
-        context.getMatrices().popMatrix();
+    private static void drawCenteredScaleText(GuiGraphicsExtractor context, Font textRenderer, Component text, int x, int y, int color, float scale) {
+        int textWidth = textRenderer.width(text);
+        context.pose().pushMatrix();
+        context.pose().translate((float) x, (float) y);
+        context.pose().scale(scale, scale);
+        context.text(textRenderer, text, -textWidth / 2, 0, color, true);
+        context.pose().popMatrix();
     }
 
     private static void drawCenteredRotatedScaleText(
-            DrawContext context,
-            TextRenderer textRenderer,
-            Text text,
+            GuiGraphicsExtractor context,
+            Font textRenderer,
+            Component text,
             int x,
             int y,
             int color,
             float scale,
             float rotationDegrees
     ) {
-        int textWidth = textRenderer.getWidth(text);
-        int textHeight = textRenderer.fontHeight;
-        context.getMatrices().pushMatrix();
-        context.getMatrices().scaleLocal(scale, scale);
-        context.getMatrices().rotateLocal((float) Math.toRadians(rotationDegrees));
-        context.getMatrices().translateLocal((float) x, (float) y);
-        context.drawTextWithShadow(textRenderer, text, -textWidth / 2, -textHeight / 2, color);
-        context.getMatrices().popMatrix();
+        int textWidth = textRenderer.width(text);
+        int textHeight = textRenderer.lineHeight;
+        context.pose().pushMatrix();
+        context.pose().translate((float) x, (float) y);
+        context.pose().rotate((float) Math.toRadians(rotationDegrees));
+        context.pose().scale(scale, scale);
+        context.text(textRenderer, text, -textWidth / 2, -textHeight / 2, color, true);
+        context.pose().popMatrix();
     }
 
     private static void drawScaledText(
-            DrawContext context,
-            TextRenderer textRenderer,
-            Text text,
+            GuiGraphicsExtractor context,
+            Font textRenderer,
+            Component text,
             int x,
             int y,
             int color,
             float scale
     ) {
-        context.getMatrices().pushMatrix();
-        context.getMatrices().scaleLocal(scale, scale);
-        context.getMatrices().translateLocal((float) x, (float) y);
-        context.drawTextWithShadow(textRenderer, text, 0, 0, color);
-        context.getMatrices().popMatrix();
+        context.pose().pushMatrix();
+        context.pose().translate((float) x, (float) y);
+        context.pose().scale(scale, scale);
+        context.text(textRenderer, text, 0, 0, color, true);
+        context.pose().popMatrix();
     }
 
-    private static ItemStack getDimensionIcon(RegistryKey<World> dimension) {
-        if (dimension == World.NETHER) {
+    private static ItemStack getDimensionIcon(ResourceKey<Level> dimension) {
+        if (dimension == Level.NETHER) {
             return new ItemStack(Items.NETHERRACK);
         }
-        if (dimension == World.OVERWORLD) {
+        if (dimension == Level.OVERWORLD) {
             return new ItemStack(Items.GRASS_BLOCK);
         }
         return new ItemStack(Items.COMPASS);

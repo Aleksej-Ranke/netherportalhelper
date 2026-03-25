@@ -1,13 +1,13 @@
 package de.alek.netherportalhelper.util;
 
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 
 public class PortalTracker {
     private static boolean active = false;
     private static BlockPos targetPos = null;
-    private static RegistryKey<World> targetDimension = null;
+    private static ResourceKey<Level> targetDimension = null;
 
     public static boolean isActive() {
         return active;
@@ -17,35 +17,35 @@ public class PortalTracker {
         return targetPos;
     }
 
-    public static RegistryKey<World> getTargetDimension() {
+    public static ResourceKey<Level> getTargetDimension() {
         return targetDimension;
     }
 
-    public static boolean isPortalDimension(RegistryKey<World> dimension) {
-        return dimension == World.NETHER || dimension == World.OVERWORLD;
+    public static boolean isPortalDimension(ResourceKey<Level> dimension) {
+        return dimension == Level.NETHER || dimension == Level.OVERWORLD;
     }
 
-    public static RegistryKey<World> getCounterpartDimension(RegistryKey<World> currentDimension) {
-        if (currentDimension == World.NETHER) {
-            return World.OVERWORLD;
+    public static ResourceKey<Level> getCounterpartDimension(ResourceKey<Level> currentDimension) {
+        if (currentDimension == Level.NETHER) {
+            return Level.OVERWORLD;
         }
-        if (currentDimension == World.OVERWORLD) {
-            return World.NETHER;
+        if (currentDimension == Level.OVERWORLD) {
+            return Level.NETHER;
         }
         return null;
     }
 
-    public static BlockPos calculateCounterpartPosition(BlockPos currentPos, RegistryKey<World> currentDimension) {
-        if (currentDimension == World.NETHER) {
+    public static BlockPos calculateCounterpartPosition(BlockPos currentPos, ResourceKey<Level> currentDimension) {
+        if (currentDimension == Level.NETHER) {
             return new BlockPos(currentPos.getX() * 8, currentPos.getY(), currentPos.getZ() * 8);
         }
-        if (currentDimension == World.OVERWORLD) {
+        if (currentDimension == Level.OVERWORLD) {
             return new BlockPos(Math.floorDiv(currentPos.getX(), 8), currentPos.getY(), Math.floorDiv(currentPos.getZ(), 8));
         }
         return null;
     }
 
-    public static boolean lockTarget(BlockPos calculatedTarget, RegistryKey<World> calculatedDimension) {
+    public static boolean lockTarget(BlockPos calculatedTarget, ResourceKey<Level> calculatedDimension) {
         if (calculatedTarget == null || calculatedDimension == null) {
             return false;
         }
@@ -61,7 +61,7 @@ public class PortalTracker {
         targetDimension = null;
     }
 
-    public static void toggleFreeze(BlockPos calculatedTarget, RegistryKey<World> calculatedDimension) {
+    public static void toggleFreeze(BlockPos calculatedTarget, ResourceKey<Level> calculatedDimension) {
         if (active) {
             clear();
         } else {

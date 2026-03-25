@@ -1,5 +1,6 @@
 {
   "category.netherportalhelper": "Portal Helfer",
+  "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Portal einfrieren/navigieren",
   "key.netherportalhelper.toggle": "Overlay an/aus (Toggle)",
 

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.13-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.15.5'
     id 'maven-publish'
 }
 
@@ -14,12 +14,11 @@ repositories {}
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
-remapJar {
+jar {
     archiveFileName = "${project.archives_base_name}-${project.mod_version}+mc${project.minecraft_version}.jar"
 }
 
@@ -37,7 +36,7 @@ processResources {
     }
 }
 
-def targetJavaVersion = 21
+def targetJavaVersion = 25
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
@@ -62,33 +61,4 @@ publishing {
         }
     }
     repositories {}
-}
-
-def minecraftVersions = ['1.21', '1.21.1', '1.21.2', '1.21.3', '1.21.4', '1.21.5', '1.21.6', '1.21.7', '1.21.8', '1.21.9', '1.21.10', '1.21.11']
-
-def yarnMappings = [
-        '1.21': '1.21+build.9',
-        '1.21.1': '1.21.1+build.3',
-        '1.21.2': '1.21.2+build.1',
-        '1.21.3': '1.21.3+build.2',
-        '1.21.4': '1.21.4+build.8',
-        '1.21.5': '1.21.5+build.1',
-        '1.21.6': '1.21.6+build.1',
-        '1.21.7': '1.21.7+build.8',
-        '1.21.8': '1.21.8+build.1',
-        '1.21.9': '1.21.9+build.1',
-        '1.21.10': '1.21.10+build.2',
-        '1.21.11': '1.21.11+build.4'
-]
-
-minecraftVersions.each { mcVersion ->
-    task "buildFor${mcVersion.replace('.', '')}"(type: GradleBuild) {
-        tasks = ['build']
-        startParameter.projectProperties = [
-                'minecraft_version': mcVersion,
-                'yarn_mappings': yarnMappings[mcVersion],
-                'archives_base_name': project.archives_base_name,
-                'mod_version': project.mod_version
-        ]
-    }
 }
