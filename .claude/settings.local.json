@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew build:*)",
+      "Bash(JAR=/c/Users/Alek/.gradle/caches/fabric-loom/minecraftMaven/net/minecraft/minecraft-merged/1.21.11-net.fabricmc.yarn.1_21_11.1.21.11+build.4-v2/minecraft-merged-1.21.11-net.fabricmc.yarn.1_21_11.1.21.11+build.4-v2.jar cd /tmp)",
+      "Bash(mkdir -p mc1211)",
+      "Bash(jar xf:*)",
+      "Bash(/dev/null javap:*)",
+      "Bash(jar tf:*)",
+      "Read(//c/Users/Alek/**)",
+      "Bash(find .gradle/caches/modules-2/files-2.1/net.fabricmc.fabric-api/fabric-rendering-v1 -name *.jar -type f)"
+    ]
+  }
+}

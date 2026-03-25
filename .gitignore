@@ -1,0 +1,47 @@
+# Gradle Build & Cache
+/.gradle/
+/build/
+/out/
+
+# Fabric / Dev Laufzeit (generiert durch gradlew runClient)
+/run/
+/run/logs/
+/run/telemetry/
+/run/downloads/
+/run/*.log
+/run/*.log.gz
+
+# Optional: falls du bestimmte Config teilen willst, kannst du einzelne Dateien whitelisten, z.B.
+# !/run/config/
+
+# IDE: IntelliJ IDEA
+/.idea/
+*.iml
+
+# IDE: Eclipse
+/.classpath
+/.project
+/.settings/
+
+# IDE: VS Code
+/.vscode/
+
+# Logs überall
+*.log
+*.log.gz
+
+# Betriebssystem / Editor Artefakte
+.DS_Store
+Thumbs.db
+
+# JVM Crash / Replay Files
+hs_err_pid*
+replay_pid*
+
+# Stray JARs im Projektroot (Build liegt bereits unter /build/libs)
+/netherportalhelper-*.jar
+
+# Export / Hilfsdateien
+/export_classpath.json
+
+# Falls weitere temporäre Dateien auftauchen, hier ergänzen.

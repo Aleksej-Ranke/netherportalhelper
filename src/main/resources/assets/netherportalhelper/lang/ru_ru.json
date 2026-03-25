@@ -1,19 +1,26 @@
-{
-  "category.netherportalhelper": "Помощник Портала",
-  "key.netherportalhelper.freeze": "Заморозить/Навигация",
-  "key.netherportalhelper.toggle": "Переключить оверлей",
+﻿{
+  "category.netherportalhelper": "Portal Helper",
+  "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
+  "key.netherportalhelper.toggle": "Toggle Overlay",
 
-  "msg.netherportalhelper.enabled": "Помощник Портала: Виден",
-  "msg.netherportalhelper.disabled": "Помощник Портала: Скрыт",
+  "msg.netherportalhelper.enabled": "Portal Helper: Visible",
+  "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
 
-  "hud.netherportalhelper.pos": "Поз: %s, %s (%s)",
-  "hud.netherportalhelper.target": "Цель: %s%s, %s (%s)",
-  "hud.netherportalhelper.locked": "ЗАФИКСИРОВАНО",
-  "hud.netherportalhelper.unlock_hint": "разблокировать",
-  "hud.netherportalhelper.lock_hint": "заблокировать",
-  "hud.netherportalhelper.build_here": "СТРОИТЬ ЗДЕСЬ",
-  "hud.netherportalhelper.turn_around": "Развернись",
-  "hud.netherportalhelper.not_possible": "Здесь невозможно!",
-  "hud.netherportalhelper.on": "ВКЛ",
-  "hud.netherportalhelper.off": "ВЫКЛ"
+  "hud.netherportalhelper.title": "Portal Navigation",
+  "hud.netherportalhelper.pos": "Pos: %s, %s",
+  "hud.netherportalhelper.target": "Target: %s, %s",
+  "hud.netherportalhelper.dim_overworld": "Overworld",
+  "hud.netherportalhelper.dim_nether": "Nether",
+  "hud.netherportalhelper.dim_unknown": "Unknown",
+  "hud.netherportalhelper.locked": "LOCKED",
+  "hud.netherportalhelper.ready": "READY",
+  "hud.netherportalhelper.unlock_hint": "to unlock",
+  "hud.netherportalhelper.lock_hint": "to lock",
+  "hud.netherportalhelper.hide_hint": "to hide",
+  "hud.netherportalhelper.build_here": "BUILD HERE",
+  "hud.netherportalhelper.turn_around": "Turn Around",
+  "hud.netherportalhelper.not_possible": "Not possible here!",
+  "hud.netherportalhelper.on": "ON",
+  "hud.netherportalhelper.off": "OFF"
 }
+

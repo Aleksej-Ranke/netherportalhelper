@@ -1,19 +1,26 @@
-{
-  "category.netherportalhelper": "Pomocnik Portalu",
-  "key.netherportalhelper.freeze": "Zablokuj/Nawiguj Portal",
-  "key.netherportalhelper.toggle": "Pokaż/Ukryj Nakładkę",
+﻿{
+  "category.netherportalhelper": "Portal Helper",
+  "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
+  "key.netherportalhelper.toggle": "Toggle Overlay",
 
-  "msg.netherportalhelper.enabled": "Pomocnik Portalu: Widoczny",
-  "msg.netherportalhelper.disabled": "Pomocnik Portalu: Ukryty",
+  "msg.netherportalhelper.enabled": "Portal Helper: Visible",
+  "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
 
-  "hud.netherportalhelper.pos": "Poz: %s, %s (%s)",
-  "hud.netherportalhelper.target": "Cel: %s%s, %s (%s)",
-  "hud.netherportalhelper.locked": "ZABLOKOWANE",
-  "hud.netherportalhelper.unlock_hint": "aby odblokować",
-  "hud.netherportalhelper.lock_hint": "aby zablokować",
-  "hud.netherportalhelper.build_here": "BUDUJ TUTAJ",
-  "hud.netherportalhelper.turn_around": "Odwróć się",
-  "hud.netherportalhelper.not_possible": "Niemożliwe tutaj!",
-  "hud.netherportalhelper.on": "WŁ",
-  "hud.netherportalhelper.off": "WYŁ"
+  "hud.netherportalhelper.title": "Portal Navigation",
+  "hud.netherportalhelper.pos": "Pos: %s, %s",
+  "hud.netherportalhelper.target": "Target: %s, %s",
+  "hud.netherportalhelper.dim_overworld": "Overworld",
+  "hud.netherportalhelper.dim_nether": "Nether",
+  "hud.netherportalhelper.dim_unknown": "Unknown",
+  "hud.netherportalhelper.locked": "LOCKED",
+  "hud.netherportalhelper.ready": "READY",
+  "hud.netherportalhelper.unlock_hint": "to unlock",
+  "hud.netherportalhelper.lock_hint": "to lock",
+  "hud.netherportalhelper.hide_hint": "to hide",
+  "hud.netherportalhelper.build_here": "BUILD HERE",
+  "hud.netherportalhelper.turn_around": "Turn Around",
+  "hud.netherportalhelper.not_possible": "Not possible here!",
+  "hud.netherportalhelper.on": "ON",
+  "hud.netherportalhelper.off": "OFF"
 }
+

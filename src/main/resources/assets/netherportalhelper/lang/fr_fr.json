@@ -1,19 +1,26 @@
-{
-  "category.netherportalhelper": "Aide Portail",
-  "key.netherportalhelper.freeze": "Figer/Naviguer Portail",
-  "key.netherportalhelper.toggle": "Afficher/Masquer Overlay",
+﻿{
+  "category.netherportalhelper": "Portal Helper",
+  "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
+  "key.netherportalhelper.toggle": "Toggle Overlay",
 
-  "msg.netherportalhelper.enabled": "Aide Portail: Visible",
-  "msg.netherportalhelper.disabled": "Aide Portail: Masqué",
+  "msg.netherportalhelper.enabled": "Portal Helper: Visible",
+  "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
 
-  "hud.netherportalhelper.pos": "Pos: %s, %s (%s)",
-  "hud.netherportalhelper.target": "Cible: %s%s, %s (%s)",
-  "hud.netherportalhelper.locked": "VERROUILLÉ",
-  "hud.netherportalhelper.unlock_hint": "pour déverrouiller",
-  "hud.netherportalhelper.lock_hint": "pour verrouiller",
-  "hud.netherportalhelper.build_here": "CONSTRUIRE ICI",
-  "hud.netherportalhelper.turn_around": "Retournez-vous",
-  "hud.netherportalhelper.not_possible": "Impossible ici !",
+  "hud.netherportalhelper.title": "Portal Navigation",
+  "hud.netherportalhelper.pos": "Pos: %s, %s",
+  "hud.netherportalhelper.target": "Target: %s, %s",
+  "hud.netherportalhelper.dim_overworld": "Overworld",
+  "hud.netherportalhelper.dim_nether": "Nether",
+  "hud.netherportalhelper.dim_unknown": "Unknown",
+  "hud.netherportalhelper.locked": "LOCKED",
+  "hud.netherportalhelper.ready": "READY",
+  "hud.netherportalhelper.unlock_hint": "to unlock",
+  "hud.netherportalhelper.lock_hint": "to lock",
+  "hud.netherportalhelper.hide_hint": "to hide",
+  "hud.netherportalhelper.build_here": "BUILD HERE",
+  "hud.netherportalhelper.turn_around": "Turn Around",
+  "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
   "hud.netherportalhelper.off": "OFF"
 }
+
