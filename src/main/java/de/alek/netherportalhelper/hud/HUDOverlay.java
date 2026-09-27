@@ -10,6 +10,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
@@ -71,8 +72,15 @@ public class HUDOverlay {
             targetZ = counterpart.getZ();
         }
 
-        Component title = Component.translatable("hud.netherportalhelper.title").withStyle(ChatFormatting.GOLD);
+        MutableComponent title = Component.translatable("hud.netherportalhelper.title").withStyle(ChatFormatting.GOLD);
+        String bookmarkName = PortalTracker.getTargetName();
+        if (bookmarkName != null) {
+            title.append(Component.literal(" · " + bookmarkName).withStyle(ChatFormatting.GOLD));
+        }
         boolean isLocked = PortalTracker.isActive();
+        ResourceKey<Level> targetDimension = isLocked && PortalTracker.getTargetDimension() != null
+                ? PortalTracker.getTargetDimension()
+                : PortalTracker.getCounterpartDimension(currentDimension);
 
         Component line1 = Component.translatable(
                 "hud.netherportalhelper.pos",
@@ -160,7 +168,7 @@ public class HUDOverlay {
         drawScaledText(context, client.font, hintLine, textX, line4Y, 0xFFB5B5B5, 0.85f);
 
         context.item(getDimensionIcon(currentDimension), iconX, icon1Y);
-        context.item(getDimensionIcon(PortalTracker.getCounterpartDimension(currentDimension)), iconX, icon2Y);
+        context.item(getDimensionIcon(targetDimension), iconX, icon2Y);
     }
 
     private static void renderNavigationCompass(GuiGraphicsExtractor context, Minecraft client, ModConfig config) {
@@ -184,7 +192,10 @@ public class HUDOverlay {
 
         if (onTargetX && onTargetZ) {
             drawCenteredScaleText(context, client.font, Component.literal("\u2714"), centerX, centerY - 4, 0xFF55FF55, config.compassArrowScale);
-            drawCenteredScaleText(context, client.font, Component.translatable("hud.netherportalhelper.build_here"), centerX, centerY + 20, 0xFFFFFFFF, config.compassTextScale);
+            String status = PortalTracker.getTargetName() == null
+                    ? "hud.netherportalhelper.build_here"
+                    : "hud.netherportalhelper.bookmark_arrived";
+            drawCenteredScaleText(context, client.font, Component.translatable(status), centerX, centerY + 20, 0xFFFFFFFF, config.compassTextScale);
             return;
         }
 

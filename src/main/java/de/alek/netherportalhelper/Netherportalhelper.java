@@ -2,6 +2,8 @@ package de.alek.netherportalhelper;
 
 import de.alek.netherportalhelper.config.ConfigManager;
 import de.alek.netherportalhelper.hud.HUDOverlay;
+import de.alek.netherportalhelper.screen.PortalBookmarksScreen;
+import de.alek.netherportalhelper.util.BookmarkStore;
 import de.alek.netherportalhelper.util.PortalTracker;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
@@ -30,11 +32,14 @@ public class Netherportalhelper implements ClientModInitializer {
 
     private static KeyMapping freezeKey;
     private static KeyMapping toggleKey;
+    private static KeyMapping bookmarksKey;
+    private static BookmarkStore bookmarkStore;
 
     @Override
     public void onInitializeClient() {
         try {
             ConfigManager.load(LOGGER);
+            bookmarkStore = new BookmarkStore(LOGGER);
             HUDOverlay.isVisible = ConfigManager.get().hudVisible;
 
             freezeKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
@@ -47,6 +52,12 @@ public class Netherportalhelper implements ClientModInitializer {
                     "key.netherportalhelper.toggle",
                     InputConstants.Type.KEYSYM,
                     GLFW.GLFW_KEY_F6,
+                    KEY_CATEGORY
+            ));
+            bookmarksKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+                    "key.netherportalhelper.bookmarks",
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_B,
                     KEY_CATEGORY
             ));
 
@@ -66,6 +77,12 @@ public class Netherportalhelper implements ClientModInitializer {
             });
 
             ClientTickEvents.END_CLIENT_TICK.register(client -> {
+                while (bookmarksKey.consumeClick()) {
+                    if (client.player != null && client.level != null && client.gui.screen() == null) {
+                        client.gui.setScreen(new PortalBookmarksScreen(bookmarkStore, BookmarkStore.worldScope(client)));
+                    }
+                }
+
                 if (PortalTracker.isActive() && (PortalTracker.getTargetPos() == null || PortalTracker.getTargetDimension() == null)) {
                     PortalTracker.clear();
                     HUDOverlay.resetCompassState();

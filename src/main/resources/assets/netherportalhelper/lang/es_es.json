@@ -3,6 +3,7 @@
   "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
   "key.netherportalhelper.toggle": "Toggle Overlay",
+  "key.netherportalhelper.bookmarks": "Abrir marcadores de portales",
 
   "msg.netherportalhelper.enabled": "Portal Helper: Visible",
   "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
@@ -22,7 +23,33 @@
   "hud.netherportalhelper.turn_around": "Turn Around",
   "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
-  "hud.netherportalhelper.off": "OFF"
+  "hud.netherportalhelper.off": "OFF",
+  "hud.netherportalhelper.bookmark_arrived": "DESTINO ALCANZADO",
+  "screen.netherportalhelper.bookmark.title": "Marcadores de portales",
+  "screen.netherportalhelper.bookmark.list": "Lugares guardados",
+  "screen.netherportalhelper.bookmark.name": "Nombre del marcador",
+  "screen.netherportalhelper.bookmark.name_hint": "Nombre (hasta 48 caracteres)",
+  "screen.netherportalhelper.bookmark.empty": "Aún no hay lugares guardados.",
+  "screen.netherportalhelper.bookmark.no_world": "Abre los marcadores dentro de un mundo o servidor.",
+  "screen.netherportalhelper.bookmark.read_only": "El almacenamiento de marcadores es de solo lectura.",
+  "screen.netherportalhelper.bookmark.storage_error": "El almacenamiento no está disponible o contiene datos inválidos.",
+  "screen.netherportalhelper.bookmark.invalid_name": "Escribe un nombre de entre 1 y 48 caracteres.",
+  "screen.netherportalhelper.bookmark.duplicate_name": "Ese nombre ya existe en este mundo.",
+  "screen.netherportalhelper.bookmark.invalid_dimension": "Solo se admiten lugares de la Superficie y el Nether.",
+  "screen.netherportalhelper.bookmark.missing": "Ese marcador ya no está disponible.",
+  "screen.netherportalhelper.bookmark.saved": "Marcador guardado.",
+  "screen.netherportalhelper.bookmark.renamed": "Marcador renombrado.",
+  "screen.netherportalhelper.bookmark.deleted": "Marcador eliminado.",
+  "screen.netherportalhelper.bookmark.navigating": "Navegando a %s",
+  "screen.netherportalhelper.bookmark.confirm_delete": "¿Eliminar marcador?",
+  "screen.netherportalhelper.bookmark.confirm_delete_message": "¿Eliminar %s? Esta acción no se puede deshacer.",
+  "screen.netherportalhelper.bookmark.save_position": "Guardar esta posición",
+  "screen.netherportalhelper.bookmark.save_target": "Guardar destino fijado",
+  "screen.netherportalhelper.bookmark.navigate": "Navegar",
+  "screen.netherportalhelper.bookmark.rename": "Renombrar seleccionado",
+  "screen.netherportalhelper.bookmark.delete": "Eliminar seleccionado",
+  "screen.netherportalhelper.bookmark.entry_location": "%s  %s, %s, %s",
+  "screen.netherportalhelper.bookmark.entry_narration": "%s, %s, X %s, Y %s, Z %s"
 }
 
 
