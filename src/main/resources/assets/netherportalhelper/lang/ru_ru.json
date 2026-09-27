@@ -3,6 +3,7 @@
   "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
   "key.netherportalhelper.toggle": "Toggle Overlay",
+  "key.netherportalhelper.bookmarks": "Открыть закладки порталов",
 
   "msg.netherportalhelper.enabled": "Portal Helper: Visible",
   "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
@@ -22,7 +23,33 @@
   "hud.netherportalhelper.turn_around": "Turn Around",
   "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
-  "hud.netherportalhelper.off": "OFF"
+  "hud.netherportalhelper.off": "OFF",
+  "hud.netherportalhelper.bookmark_arrived": "ЦЕЛЬ ДОСТИГНУТА",
+  "screen.netherportalhelper.bookmark.title": "Закладки порталов",
+  "screen.netherportalhelper.bookmark.list": "Сохранённые места",
+  "screen.netherportalhelper.bookmark.name": "Название закладки",
+  "screen.netherportalhelper.bookmark.name_hint": "Название (до 48 символов)",
+  "screen.netherportalhelper.bookmark.empty": "Нет сохранённых мест.",
+  "screen.netherportalhelper.bookmark.no_world": "Откройте закладки в мире или на сервере.",
+  "screen.netherportalhelper.bookmark.read_only": "Хранилище закладок доступно только для чтения.",
+  "screen.netherportalhelper.bookmark.storage_error": "Хранилище недоступно или содержит неверные данные.",
+  "screen.netherportalhelper.bookmark.invalid_name": "Введите название длиной от 1 до 48 символов.",
+  "screen.netherportalhelper.bookmark.duplicate_name": "Это название уже используется в этом мире.",
+  "screen.netherportalhelper.bookmark.invalid_dimension": "Поддерживаются только места в Верхнем мире и Незере.",
+  "screen.netherportalhelper.bookmark.missing": "Эта закладка больше недоступна.",
+  "screen.netherportalhelper.bookmark.saved": "Закладка сохранена.",
+  "screen.netherportalhelper.bookmark.renamed": "Название закладки изменено.",
+  "screen.netherportalhelper.bookmark.deleted": "Закладка удалена.",
+  "screen.netherportalhelper.bookmark.navigating": "Навигация к цели: %s",
+  "screen.netherportalhelper.bookmark.confirm_delete": "Удалить закладку?",
+  "screen.netherportalhelper.bookmark.confirm_delete_message": "Удалить %s? Это действие нельзя отменить.",
+  "screen.netherportalhelper.bookmark.save_position": "Сохранить это место",
+  "screen.netherportalhelper.bookmark.save_target": "Сохранить заданную цель",
+  "screen.netherportalhelper.bookmark.navigate": "Начать навигацию",
+  "screen.netherportalhelper.bookmark.rename": "Переименовать",
+  "screen.netherportalhelper.bookmark.delete": "Удалить",
+  "screen.netherportalhelper.bookmark.entry_location": "%s  %s, %s, %s",
+  "screen.netherportalhelper.bookmark.entry_narration": "%s, %s, X %s, Y %s, Z %s"
 }
 
 

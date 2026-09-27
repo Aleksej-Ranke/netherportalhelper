@@ -3,6 +3,7 @@
   "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
   "key.netherportalhelper.toggle": "Toggle Overlay",
+  "key.netherportalhelper.bookmarks": "打开传送门书签",
 
   "msg.netherportalhelper.enabled": "Portal Helper: Visible",
   "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
@@ -22,7 +23,33 @@
   "hud.netherportalhelper.turn_around": "Turn Around",
   "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
-  "hud.netherportalhelper.off": "OFF"
+  "hud.netherportalhelper.off": "OFF",
+  "hud.netherportalhelper.bookmark_arrived": "已到达目标",
+  "screen.netherportalhelper.bookmark.title": "传送门书签",
+  "screen.netherportalhelper.bookmark.list": "已保存的位置",
+  "screen.netherportalhelper.bookmark.name": "书签名称",
+  "screen.netherportalhelper.bookmark.name_hint": "名称（最多 48 个字符）",
+  "screen.netherportalhelper.bookmark.empty": "尚无已保存的位置。",
+  "screen.netherportalhelper.bookmark.no_world": "请在世界或服务器中打开书签。",
+  "screen.netherportalhelper.bookmark.read_only": "书签存储为只读。",
+  "screen.netherportalhelper.bookmark.storage_error": "书签存储不可用或包含无效数据。",
+  "screen.netherportalhelper.bookmark.invalid_name": "请输入 1 到 48 个字符的名称。",
+  "screen.netherportalhelper.bookmark.duplicate_name": "此名称已在当前世界使用。",
+  "screen.netherportalhelper.bookmark.invalid_dimension": "仅支持主世界和下界的位置。",
+  "screen.netherportalhelper.bookmark.missing": "此书签已不可用。",
+  "screen.netherportalhelper.bookmark.saved": "书签已保存。",
+  "screen.netherportalhelper.bookmark.renamed": "书签已重命名。",
+  "screen.netherportalhelper.bookmark.deleted": "书签已删除。",
+  "screen.netherportalhelper.bookmark.navigating": "正在前往 %s",
+  "screen.netherportalhelper.bookmark.confirm_delete": "删除书签？",
+  "screen.netherportalhelper.bookmark.confirm_delete_message": "删除 %s？此操作无法撤销。",
+  "screen.netherportalhelper.bookmark.save_position": "保存当前位置",
+  "screen.netherportalhelper.bookmark.save_target": "保存已锁定的目标",
+  "screen.netherportalhelper.bookmark.navigate": "开始导航",
+  "screen.netherportalhelper.bookmark.rename": "重命名所选项",
+  "screen.netherportalhelper.bookmark.delete": "删除所选项",
+  "screen.netherportalhelper.bookmark.entry_location": "%s  %s, %s, %s",
+  "screen.netherportalhelper.bookmark.entry_narration": "%s，%s，X %s，Y %s，Z %s"
 }
 
 

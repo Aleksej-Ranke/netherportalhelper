@@ -3,6 +3,7 @@
   "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
   "key.netherportalhelper.toggle": "Toggle Overlay",
+  "key.netherportalhelper.bookmarks": "Ouvrir les repères de portail",
 
   "msg.netherportalhelper.enabled": "Portal Helper: Visible",
   "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
@@ -22,7 +23,33 @@
   "hud.netherportalhelper.turn_around": "Turn Around",
   "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
-  "hud.netherportalhelper.off": "OFF"
+  "hud.netherportalhelper.off": "OFF",
+  "hud.netherportalhelper.bookmark_arrived": "DESTINATION ATTEINTE",
+  "screen.netherportalhelper.bookmark.title": "Repères de portail",
+  "screen.netherportalhelper.bookmark.list": "Lieux enregistrés",
+  "screen.netherportalhelper.bookmark.name": "Nom du repère",
+  "screen.netherportalhelper.bookmark.name_hint": "Nom (48 caractères maximum)",
+  "screen.netherportalhelper.bookmark.empty": "Aucun lieu enregistré.",
+  "screen.netherportalhelper.bookmark.no_world": "Ouvrez les repères dans un monde ou sur un serveur.",
+  "screen.netherportalhelper.bookmark.read_only": "Le stockage des repères est en lecture seule.",
+  "screen.netherportalhelper.bookmark.storage_error": "Le stockage est indisponible ou contient des données invalides.",
+  "screen.netherportalhelper.bookmark.invalid_name": "Saisissez un nom de 1 à 48 caractères.",
+  "screen.netherportalhelper.bookmark.duplicate_name": "Ce nom existe déjà dans ce monde.",
+  "screen.netherportalhelper.bookmark.invalid_dimension": "Seuls les lieux de la Surface et du Nether sont disponibles.",
+  "screen.netherportalhelper.bookmark.missing": "Ce repère n’est plus disponible.",
+  "screen.netherportalhelper.bookmark.saved": "Repère enregistré.",
+  "screen.netherportalhelper.bookmark.renamed": "Repère renommé.",
+  "screen.netherportalhelper.bookmark.deleted": "Repère supprimé.",
+  "screen.netherportalhelper.bookmark.navigating": "Navigation vers %s",
+  "screen.netherportalhelper.bookmark.confirm_delete": "Supprimer le repère ?",
+  "screen.netherportalhelper.bookmark.confirm_delete_message": "Supprimer %s ? Cette action est irréversible.",
+  "screen.netherportalhelper.bookmark.save_position": "Enregistrer cette position",
+  "screen.netherportalhelper.bookmark.save_target": "Enregistrer la cible verrouillée",
+  "screen.netherportalhelper.bookmark.navigate": "Naviguer",
+  "screen.netherportalhelper.bookmark.rename": "Renommer la sélection",
+  "screen.netherportalhelper.bookmark.delete": "Supprimer la sélection",
+  "screen.netherportalhelper.bookmark.entry_location": "%s  %s, %s, %s",
+  "screen.netherportalhelper.bookmark.entry_narration": "%s, %s, X %s, Y %s, Z %s"
 }
 
 

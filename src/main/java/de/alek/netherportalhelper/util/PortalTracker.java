@@ -8,6 +8,7 @@ public class PortalTracker {
     private static boolean active = false;
     private static BlockPos targetPos = null;
     private static ResourceKey<Level> targetDimension = null;
+    private static String targetName = null;
 
     public static boolean isActive() {
         return active;
@@ -19,6 +20,10 @@ public class PortalTracker {
 
     public static ResourceKey<Level> getTargetDimension() {
         return targetDimension;
+    }
+
+    public static String getTargetName() {
+        return targetName;
     }
 
     public static boolean isPortalDimension(ResourceKey<Level> dimension) {
@@ -46,12 +51,17 @@ public class PortalTracker {
     }
 
     public static boolean lockTarget(BlockPos calculatedTarget, ResourceKey<Level> calculatedDimension) {
+        return lockTarget(calculatedTarget, calculatedDimension, null);
+    }
+
+    public static boolean lockTarget(BlockPos calculatedTarget, ResourceKey<Level> calculatedDimension, String name) {
         if (calculatedTarget == null || calculatedDimension == null) {
             return false;
         }
         active = true;
         targetPos = calculatedTarget;
         targetDimension = calculatedDimension;
+        targetName = name;
         return true;
     }
 
@@ -59,6 +69,7 @@ public class PortalTracker {
         active = false;
         targetPos = null;
         targetDimension = null;
+        targetName = null;
     }
 
     public static void toggleFreeze(BlockPos calculatedTarget, ResourceKey<Level> calculatedDimension) {

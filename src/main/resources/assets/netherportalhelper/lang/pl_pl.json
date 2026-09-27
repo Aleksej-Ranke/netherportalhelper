@@ -3,6 +3,7 @@
   "key.category.netherportalhelper.controls": "Nether Portal Helper",
   "key.netherportalhelper.freeze": "Freeze/Navigate Portal",
   "key.netherportalhelper.toggle": "Toggle Overlay",
+  "key.netherportalhelper.bookmarks": "Otwórz zakładki portali",
 
   "msg.netherportalhelper.enabled": "Portal Helper: Visible",
   "msg.netherportalhelper.disabled": "Portal Helper: Hidden",
@@ -22,7 +23,33 @@
   "hud.netherportalhelper.turn_around": "Turn Around",
   "hud.netherportalhelper.not_possible": "Not possible here!",
   "hud.netherportalhelper.on": "ON",
-  "hud.netherportalhelper.off": "OFF"
+  "hud.netherportalhelper.off": "OFF",
+  "hud.netherportalhelper.bookmark_arrived": "DOTARTO DO CELU",
+  "screen.netherportalhelper.bookmark.title": "Zakładki portali",
+  "screen.netherportalhelper.bookmark.list": "Zapisane miejsca",
+  "screen.netherportalhelper.bookmark.name": "Nazwa zakładki",
+  "screen.netherportalhelper.bookmark.name_hint": "Nazwa (do 48 znaków)",
+  "screen.netherportalhelper.bookmark.empty": "Brak zapisanych miejsc.",
+  "screen.netherportalhelper.bookmark.no_world": "Otwórz zakładki w świecie lub na serwerze.",
+  "screen.netherportalhelper.bookmark.read_only": "Magazyn zakładek jest tylko do odczytu.",
+  "screen.netherportalhelper.bookmark.storage_error": "Magazyn jest niedostępny lub zawiera nieprawidłowe dane.",
+  "screen.netherportalhelper.bookmark.invalid_name": "Wpisz nazwę o długości od 1 do 48 znaków.",
+  "screen.netherportalhelper.bookmark.duplicate_name": "Ta nazwa jest już używana w tym świecie.",
+  "screen.netherportalhelper.bookmark.invalid_dimension": "Obsługiwane są tylko miejsca w Nadziemiu i Netherze.",
+  "screen.netherportalhelper.bookmark.missing": "Ta zakładka nie jest już dostępna.",
+  "screen.netherportalhelper.bookmark.saved": "Zapisano zakładkę.",
+  "screen.netherportalhelper.bookmark.renamed": "Zmieniono nazwę zakładki.",
+  "screen.netherportalhelper.bookmark.deleted": "Usunięto zakładkę.",
+  "screen.netherportalhelper.bookmark.navigating": "Nawigacja do: %s",
+  "screen.netherportalhelper.bookmark.confirm_delete": "Usunąć zakładkę?",
+  "screen.netherportalhelper.bookmark.confirm_delete_message": "Usunąć %s? Tej zmiany nie można cofnąć.",
+  "screen.netherportalhelper.bookmark.save_position": "Zapisz tę pozycję",
+  "screen.netherportalhelper.bookmark.save_target": "Zapisz zablokowany cel",
+  "screen.netherportalhelper.bookmark.navigate": "Nawiguj",
+  "screen.netherportalhelper.bookmark.rename": "Zmień nazwę",
+  "screen.netherportalhelper.bookmark.delete": "Usuń zaznaczoną",
+  "screen.netherportalhelper.bookmark.entry_location": "%s  %s, %s, %s",
+  "screen.netherportalhelper.bookmark.entry_narration": "%s, %s, X %s, Y %s, Z %s"
 }
 
 
