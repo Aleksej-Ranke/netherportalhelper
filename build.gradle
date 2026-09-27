@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.15.5'
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -61,4 +61,21 @@ publishing {
         }
     }
     repositories {}
+}
+
+tasks.register('regressionTest', JavaExec) {
+    group = 'verification'
+    description = 'Checks portal coordinate conversion at negative and positive boundaries.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'de.alek.netherportalhelper.util.PortalTrackerRegressionCheck'
+    enableAssertions = true
+    dependsOn tasks.testClasses
+}
+
+tasks.named('check') {
+    dependsOn tasks.regressionTest
+}
+
+tasks.named('test') {
+    failOnNoDiscoveredTests = false
 }
