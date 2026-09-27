@@ -72,8 +72,17 @@ tasks.register('regressionTest', JavaExec) {
     dependsOn tasks.testClasses
 }
 
+tasks.register('bookmarkRegressionTest', JavaExec) {
+    group = 'verification'
+    description = 'Checks bookmark scoping, persistence, validation, and safe file handling.'
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'de.alek.netherportalhelper.util.BookmarkStoreRegressionCheck'
+    enableAssertions = true
+    dependsOn tasks.testClasses
+}
+
 tasks.named('check') {
-    dependsOn tasks.regressionTest
+    dependsOn tasks.regressionTest, tasks.bookmarkRegressionTest
 }
 
 tasks.named('test') {

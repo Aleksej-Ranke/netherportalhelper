@@ -12,7 +12,10 @@ A client-side Fabric mod that calculates the matching Nether and Overworld coord
 ## Controls
 
 - **P:** Lock or unlock the calculated portal target and navigate to it.
+- **B:** Open the saved portal bookmarks for the current world or server.
 - **F6:** Show or hide the HUD. Both key bindings can be changed in Minecraft's Controls settings.
+
+Bookmarks store a named position in the Overworld or Nether, or the current calculated target. They remain separate for each single-player world and multiplayer server. Select a saved bookmark and choose **Navigate** to use it with the compass.
 
 ## Build
 
